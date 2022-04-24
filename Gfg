@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Gfg {
+    HashMap<Integer, List<Integer>> obj ;
+    public Gfg(){
+        obj = new HashMap<>();
+    }
+    public void addedge(int v1,int v2,boolean bidirectional) {
+        if (bidirectional == true) {
+            LinkedList<Integer> V2neighbour = (LinkedList<Integer>) obj.getOrDefault(v2, new LinkedList());
+            V2neighbour.add(v1);
+            obj.put(v2, V2neighbour);
+        }
+    }
+    public void display() {
+        for (Map.Entry<Integer, List<Integer>> res : obj.entrySet()) {
+            System.out.println(res.getKey());
+            System.out.println(res.getValue());
+        }
+    }
+
+    public static void main(String[] args) {
+        Gfg n1 = new Gfg();
+        n1.addedge(1, 2, true);
+        n1.addedge(1, 3, true);
+        n1.addedge(3, 4, true);
+        n1.addedge(3, 5, true);
+        n1.addedge(5, 6, true);
+        n1.display();
+        Scanner sc = new Scanner(System.in);
+    }
+
+       // Scanner sc = new Scanner(System.in);
+        //String s = sc.nextLine();
+        //Integer i = sc.nextInt();
+        //HashMap<String,Integer> obj = new HashMap<>();
+        //obj.put("abc",50);
+        //obj.put("pqr",50);
+        //obj.put("efg",45);
+        //obj.put("abc",100);
+        //int Res = obj.getOrDefault("def",23);
+        //System.out.println(Res);
+        //System.out.println(obj);
+        //key can be duplicate but value cannot be duplicate
+        //for iteration we use cursors or foreach method
+        //for(Map.Entry<Integer,List<Integer>> res: obj.entrySet()){
+          //  System.out.println(res.getKey());
+            //System.out.println(res.getValue());
+        //}
+    //}
+}
